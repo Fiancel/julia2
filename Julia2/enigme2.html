@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Énigme 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Énigme 2</h1>
+        <p>Quand sommes-nous devenus officiellement ensemble ?</p>
+        <input type="text" id="answer" placeholder="Par exemple : 18 mars 2022">
+        <button onclick="checkAnswer()">Valider</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        function checkAnswer() {
+            const answers = [
+                "27 juin", "27 juin 2023", 
+                "27/06", "27/06/2023", 
+                "27-06", "27-06-2023", 
+                "27.06", "27.06.2023", 
+                "27juin", "27juin2023"
+            ]; // Variantes possibles de la date
+
+            const userAnswer = document.getElementById('answer').value.toLowerCase().trim();
+
+            if (answers.includes(userAnswer)) {
+                location.href = 'enigme3.html'; // Lien vers la page finale (ou suivante)
+            } else {
+                document.getElementById('message').textContent = "Et non, Essaie encore !";
+            }
+        }
+    </script>
+</body>
+</html>

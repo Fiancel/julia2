@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Énigme 4</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Énigme 4</h1>
+        <p>Quel était le premier endroit où on c'est date ?</p>
+        <input type="text" id="answer" placeholder="Ta réponse ici">
+        <button onclick="checkAnswer()">Valider</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        function checkAnswer() {
+            const answers = [
+                "lechamps", "lechamp", 
+                "le champs", "le champ", 
+                "champs", "champs", "le champs en face de chez moi", "le champ enface de chez moi", "le champ en face de chez moi"
+            ]; // Remplace par le lieu exact où vous êtes allés
+
+            const userAnswer = document.getElementById('answer').value.toLowerCase().trim();
+
+            if (answers.includes(userAnswer)) {
+                location.href = 'code.html'; // Lien vers la prochaine énigme
+            } else {
+                document.getElementById('message').textContent = "Et non, Essaie encore !";
+            }
+        }
+    </script>
+</body>
+</html>

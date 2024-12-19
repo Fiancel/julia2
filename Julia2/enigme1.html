@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Énigme 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Énigme 1</h1>
+        <p>Quel était le premier film qu’on a regardé ensemble ?</p>
+        <input type="text" id="answer" placeholder="Ta réponse ici">
+        <button onclick="checkAnswer()">Valider</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            // Liste de réponses possibles, normalisées en minuscule et sans espaces
+            const answers = [
+                "à contre-sens", "a contre sens", "a-contre-sens", 
+                "à contresens", "a contresens", 
+                "a contre-sens", "à contre sens", 
+                "àcontresens", "acontresens", 
+                "contre sens", "contresens"
+            ]; 
+
+            // Récupération de la réponse de l'utilisateur
+            const userAnswer = document.getElementById('answer').value.toLowerCase().trim();
+
+            // Vérification si la réponse de l'utilisateur est dans la liste des bonnes réponses
+            if (answers.some(answer => userAnswer === answer.toLowerCase())) {
+                // Redirection vers la page de la prochaine énigme
+                location.href = 'enigme2.html'; 
+            } else {
+                // Affichage du message d'erreur
+                document.getElementById('message').textContent = "Et non, Essaie encore !";
+            }
+        }
+    </script>
+</body>
+</html>
